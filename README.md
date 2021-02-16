@@ -14,10 +14,11 @@ Over winter break my wife and I went to a graffiti workshop in Brooklyn where we
 * External Monitor
 
 # Project Overview
-The project consisted of three scripts:
-  * Python script that would read-in an updated stock price every 60 seconds and compare it to the previous price. If the new price was bigger than the old price it would write a 1 in a seperate text file, if it was smaller it would write a 0 in that text file. It would also update a seperate text file with the current price.
-  * Another python script that would read the text file that had either a 0 or 1 in it and then turn on the LEDs to create a green smiley face if it was a 1 and a red upside down smiley face if it was a zero.
-  * Processing Script that would read both text files to both update the display with the current price and use the 0 or 1 to determine whether the stock had gone up or down. When the stock goes up it would rain green money symbols and when it went down it would rain money symbols on fire.
+The project consisted of two scripts that communicated with each other serially:
+
+    * An Arduino script that ran on the ESP32 that would take in all inputs from the user and either send data serially over to the processing script or move/control the raspberry pi's mouse serially.
+    
+    * A processing script that would take in the user input data from the ESP32 and use it to run a Graffiti Art Simulator. To switch between drawing and not drawing, the user would have to toggle the SPDT switch (which controlled the left clicker of the mouse). To move the spray-paint can around the canvas the user would use the joystick. To clear the canvas the user would push the joystick's push-button. To change the color of the paint, the user would use the two push-buttons. One button was programmed to subtract 1 from the current hue value while the other would add 1 to the current hue value.n it would rain money symbols on fire.
 # Technical Issues
 My main difficulty was figuring out how to use the joystick and a push-button as a USB mouse on the raspberry pi. After figuring that out I realized that the delays between each of my input's data-writes to serial was slowing the movements of the joystick mouse but without the delays the processing script was not reacting quick enough for the simulator to work smoothly. After a few iterations I found a good medium where neither thing was reacting too slowly to my inputs. Another issue that came up was that my raspberry pi was getting very hot and therefore I decided not to put it inside the enclosure.
 # Video
