@@ -9,7 +9,7 @@ Over winter break my wife and I went to a graffiti workshop in Brooklyn where we
 * Breadboard
 * 2 Push-buttons with Colored Caps
 * SPDT Switch
-* Female to Female Wires
+* Bunch of Wires
 * 9V Lithium Ion Battery Pack
 * External Monitor
 
